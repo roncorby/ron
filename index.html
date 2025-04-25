@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Image Toggle Example</title>
+  <style>
+    body {
+      text-align: center;
+      margin-top: 50px;
+      font-family: Arial, sans-serif;
+    }
+    #myImage {
+      width: 300px;
+      height: auto;
+    }
+    #toggleButton {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Click the Button to Change the Image</h1>
+  <img id="myImage" src="pic1.jpg" alt="Image">
+  <br>
+  <button onclick="window.location.href='wap.html'">Change image</button>
+  <script>
+    const image = document.getElementById('myImage');
+    const button = document.getElementById('toggleButton');
+
+    // Array of image URLs
+    const images = [
+      'https://via.placeholder.com/300x200.png?text=Image+1',
+      'https://via.placeholder.com/300x200.png?text=Image+2'
+    ];
+
+    let currentIndex = 0;
+
+    button.addEventListener('click', () => {
+      // Toggle the image index
+      currentIndex = (currentIndex + 1) % images.length;
+      // Update the image source
+      image.src = images[currentIndex];
+    });
+  </script>
+
+</body>
+</html>
